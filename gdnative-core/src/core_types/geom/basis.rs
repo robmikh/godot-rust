@@ -587,7 +587,11 @@ impl Mul<Vector3> for Basis {
 
     #[inline]
     fn mul(self, rhs: Self::Output) -> Self::Output {
-        Self::Output::new(self.tdotx(rhs), self.tdoty(rhs), self.tdotz(rhs))
+        Self::Output::new(
+            self.elements[0].dot(rhs),
+            self.elements[1].dot(rhs),
+            self.elements[2].dot(rhs),
+        )
     }
 }
 
