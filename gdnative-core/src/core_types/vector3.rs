@@ -116,7 +116,7 @@ impl Vector3 {
     /// Returns the normalized vector pointing from this vector to `other`.
     #[inline]
     pub fn direction_to(self, other: Vector3) -> Vector3 {
-        Self::gd((other.glam() - self.glam()).normalize())
+        Self::gd((other.glam() - self.glam()).normalize_or_zero())
     }
 
     /// Returns the squared distance to `other`.
@@ -253,7 +253,7 @@ impl Vector3 {
     /// Returns the vector scaled to unit length. Equivalent to `v / v.length()`.
     #[inline]
     pub fn normalized(self) -> Self {
-        Self::gd(self.glam().normalize())
+        Self::gd(self.glam().normalize_or_zero())
     }
 
     /// Returns the outer product with `b`.

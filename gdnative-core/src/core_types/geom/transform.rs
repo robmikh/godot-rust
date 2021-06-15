@@ -34,4 +34,16 @@ impl Transform {
             origin,
         }
     }
+
+    #[inline]
+    pub fn orthonormalize(mut self) {
+        self.basis.orthonormalize();
+    }
+
+    #[inline]
+    pub fn orthonormalized(&self) -> Self {
+        let copy = *self;
+        copy.orthonormalize();
+        copy
+    }
 }
